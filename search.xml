@@ -3180,7 +3180,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">route delete 0.0.0.0 mask 0.0.0.0 179.x.x.x</span><br></pre></td></tr></table></figure>
 <p>添加永久路由，使访问179开头的内网时，使用内部网络</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">route add -p 179.0.0.0 mask 255.0.0.0 179.x.x.x</span><br></pre></td></tr></table></figure>
-<p>此时就可以同时访问内网和外网了。11111111111111111111111111</p>
+<p>此时就可以同时访问内网和外网了。</p>
 ]]></content>
       <tags>
         <tag>网络</tag>
