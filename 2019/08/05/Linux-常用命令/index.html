@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+  
+
+<link href="//cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="linux," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="因linux强大的性能和稳定性，绝大多数系统都会部署在linux上，而操作linux系统就需要使用命令。本文列出一些在工作中用到的linux命令，用作参考查阅。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux-常用命令">
+<meta property="og:url" content="http://yoursite.com/2019/08/05/Linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="YuanGaopeng&#39;s Notes">
+<meta property="og:description" content="因linux强大的性能和稳定性，绝大多数系统都会部署在linux上，而操作linux系统就需要使用命令。本文列出一些在工作中用到的linux命令，用作参考查阅。">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-08-05T01:14:12.000Z">
+<meta property="article:modified_time" content="2021-04-03T06:49:20.651Z">
+<meta property="article:author" content="Yuan Gaopeng">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/05/Linux-常用命令/"/>
+
+
+
+
+
+  <title>linux-常用命令 | YuanGaopeng's Notes</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YuanGaopeng's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/Linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YuanGaopeng's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">linux-常用命令</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-05T09:14:12+08:00">
+                2019-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>因<strong>linux</strong>强大的性能和稳定性，绝大多数系统都会部署在linux上，而操作linux系统就需要使用命令。本文列出一些在工作中用到的linux命令，用作参考查阅。</p>
+<span id="more"></span>
+
+<h2 id="日志文本"><a href="#日志文本" class="headerlink" title="日志文本"></a>日志文本</h2><h3 id="vi"><a href="#vi" class="headerlink" title="vi"></a>vi</h3><p>命令：<code>vi example.txt</code><br>功能：新建、查看和修改文档</p>
+<h3 id="head"><a href="#head" class="headerlink" title="head"></a>head</h3><p>命令：<code>head -n 100 example.log</code><br>功能：查看日志头100行</p>
+<h3 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h3><p>命令：<code>tail -n 100 example.log</code><br>功能：查看日志尾100行<br>参数：-f：动态查看日志</p>
+<h3 id="less"><a href="#less" class="headerlink" title="less"></a>less</h3><p>命令：<code>less example.log</code><br>功能：查看一页日志<br>扩展：g移动到第一行，G移动到最后一行，u向前滚动半页，d向后滚动半页，/向下搜索字符串，?向上搜索字符串，q退出<br>乱码：如果中文乱码使用file命令查看文件编码，如果格式为<code>utf-8</code>，使用<code>export LESSCHARSET=utf-8</code>，如果格式为<code>iso8859</code>，使用<code>export LESSCHARSET=iso8859</code>（仅限于本次登陆操作）</p>
+<h2 id="目录、文件"><a href="#目录、文件" class="headerlink" title="目录、文件"></a>目录、文件</h2><h3 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h3><p>命令：<code>pwd</code><br>功能：当前工作目录</p>
+<h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><p>命令：<code>ls</code><br>功能：显示当前目录下的所有文件和目录<br>参数：-a：显示隐藏内容，-l：显示详细内容</p>
+<h3 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h3><p>命令：<code>mkdir newdir</code><br>功能：创建目录newdir</p>
+<h3 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h3><p>命令：<code>cp source dest</code><br>功能：复制单个文件<br>命令：<code>cp -r sourcedir destdir</code><br>功能：复制目录及目录中所有内容<br>命令：<code>cp -p source dest</code><br>功能：复制且保留文件属性（如修改时间）</p>
+<h3 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h3><p>命令：<code>mv oldName newName</code><br>功能：目录或文件重命名<br>命令：<code>mv /temp/movefile /targetFolder</code><br>功能：目录或文件移动</p>
+<h3 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h3><p>命令：<code>rm -f file</code><br>功能：强制删除文件<br>命令：<code>rm -rf dir</code><br>功能：强制删除目录及目录中所有内容</p>
+<h3 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h3><p>命令：<code>chmod 777 file.java</code><br>功能：修改文件权限</p>
+<h3 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h3><p>命令：<code>tar -cvf fileName.tar DirName</code><br>功能：打包<strong>生成<code>*.tar</code>文件</strong><br>命令：<code>tar -xvf fileName.tar</code><br>功能：<strong>还原<code>*.tar</code>文件</strong><br>命令：<code>tar -zcvf fileName.tar DirName</code><br>功能：<code>gzip</code>压缩后,打包<strong>生成<code>*.tar.gz</code>文件</strong><br>命令：<code>tar -zxvf fileName.tar</code><br>功能：<strong>解压<code>*.tar.gz</code>文件</strong></p>
+<h2 id="网络、端口、进程"><a href="#网络、端口、进程" class="headerlink" title="网络、端口、进程"></a>网络、端口、进程</h2><h3 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h3><p>命令：<code>ping yuangaopeng.com</code><br>功能：测试本机与目标主机连通性</p>
+<h3 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h3><p>命令：<code>netstat -lnput|grep 8080</code><br>功能：查看端口8080的占用情况（包括PID和程序名）</p>
+<h3 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h3><p>命令：<code>ps aux</code><br>功能：查看所有进程<br>命令：<code>ps aux|grep sshd</code><br>功能：查看sshd进程</p>
+<h3 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h3><p>命令：<code>kill 19979</code><br>功能：杀死PID为19979的进程</p>
+<h3 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h3><p>命令：<code>nohup java -jar xxx.jar &amp;</code><br>功能：后台启动<code>xxx.jar</code>，不会随窗口关闭，输出日志到<code>nohup.out</code>文件<br>命令：<code>nohup java -jar xxx.jar &gt;/dev/null 2&gt;&amp;1 &amp;</code><br>功能：后台启动<code>xxx.jar</code>，不会随窗口关闭，不输出日志</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/26/FreeMarker/" rel="next" title="FreeMarker">
+                <i class="fa fa-chevron-left"></i> FreeMarker
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/06/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/" rel="prev" title="日志管理">
+                日志管理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">89</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yuan0824" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="610951793@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E6%96%87%E6%9C%AC"><span class="nav-number">1.</span> <span class="nav-text">日志文本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vi"><span class="nav-number">1.1.</span> <span class="nav-text">vi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#head"><span class="nav-number">1.2.</span> <span class="nav-text">head</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tail"><span class="nav-number">1.3.</span> <span class="nav-text">tail</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#less"><span class="nav-number">1.4.</span> <span class="nav-text">less</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E3%80%81%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">目录、文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pwd"><span class="nav-number">2.1.</span> <span class="nav-text">pwd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls"><span class="nav-number">2.2.</span> <span class="nav-text">ls</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mkdir"><span class="nav-number">2.3.</span> <span class="nav-text">mkdir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cp"><span class="nav-number">2.4.</span> <span class="nav-text">cp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mv"><span class="nav-number">2.5.</span> <span class="nav-text">mv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rm"><span class="nav-number">2.6.</span> <span class="nav-text">rm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chmod"><span class="nav-number">2.7.</span> <span class="nav-text">chmod</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tar"><span class="nav-number">2.8.</span> <span class="nav-text">tar</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E3%80%81%E7%AB%AF%E5%8F%A3%E3%80%81%E8%BF%9B%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">网络、端口、进程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ping"><span class="nav-number">3.1.</span> <span class="nav-text">ping</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#netstat"><span class="nav-number">3.2.</span> <span class="nav-text">netstat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ps"><span class="nav-number">3.3.</span> <span class="nav-text">ps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kill"><span class="nav-number">3.4.</span> <span class="nav-text">kill</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nohup"><span class="nav-number">3.5.</span> <span class="nav-text">nohup</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuan Gaopeng</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">Welcome to my blog</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
