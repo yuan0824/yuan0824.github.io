@@ -4231,4 +4231,32 @@
         <tag>设计模式</tag>
       </tags>
   </entry>
+  <entry>
+    <title>jquery-confirm</title>
+    <url>/2021/06/08/jquery-confirm/</url>
+    <content><![CDATA[<p>jquery-confirm是一个常用的Jquery插件，用于警告框、确认框和对话框等弹出框，并为其提供了自动关闭，主题，动画等特性。</p>
+<span id="more"></span>
+
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>一些常用的使用如下：</p>
+<h2 id="alert"><a href="#alert" class="headerlink" title="$.alert"></a>$.alert</h2><p>如果没有指定按钮，默认有一个ok按钮。</p>
+<h3 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$.alert(&#123;</span><br><span class="line">    title: &#x27;Alert!&#x27;,</span><br><span class="line">    content: &#x27;Simple alert!&#x27;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="confirm"><a href="#confirm" class="headerlink" title="$.confirm"></a>$.confirm</h2><p>如果没有指定按钮，默认有一个ok按钮和一个取消按钮。</p>
+<h2 id="dialog"><a href="#dialog" class="headerlink" title="$.dialog"></a>$.dialog</h2><p>没有按钮，显示地有个关闭符号。</p>
+<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h1><p>一些常用的选项如下：</p>
+<ul>
+<li>title：对话框的标题。</li>
+<li>type：对话框颜色。</li>
+<li>content：对话框的内容。</li>
+<li>icon：标题前面的符号。</li>
+<li>autoClose：自动关闭，默认false，开启需要指定时间。</li>
+<li>closeIcon：关闭图标，默认是null。</li>
+</ul>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>只是一些基础使用，更多使用请查看官网。</p>
+<h2 id="官网地址"><a href="#官网地址" class="headerlink" title="官网地址"></a>官网地址</h2><p><a href="http://craftpip.github.io/jquery-confirm">craftpip.github.io/jquery-confirm</a></p>
+]]></content>
+      <tags>
+        <tag>前端</tag>
+      </tags>
+  </entry>
 </search>
