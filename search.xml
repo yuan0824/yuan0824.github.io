@@ -4259,4 +4259,25 @@
         <tag>前端</tag>
       </tags>
   </entry>
+  <entry>
+    <title>端口占用</title>
+    <url>/2021/06/29/%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3/</url>
+    <content><![CDATA[<p>端口被占用的常用解决方法</p>
+<span id="more"></span>   
+
+<h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><p>查看8080端口对应的进程</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -ano |findstr 8080</span><br></pre></td></tr></table></figure>
+
+
+<p>强制删除进程ID是5732的进程</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">taskkill /f /PID 5732</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p>查看8080端口对应的进程</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -anp | grep 8080</span><br></pre></td></tr></table></figure>
+
+
+<p>强制删除进程ID是1868的进程</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kill -9 1868</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
 </search>
