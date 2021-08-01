@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://yoursite.com/img/logo.jpg">
 <meta property="og:image" content="http://yoursite.com/img/lifecycle.png">
 <meta property="article:published_time" content="2018-07-09T08:37:08.000Z">
-<meta property="article:modified_time" content="2021-07-31T14:10:30.159Z">
+<meta property="article:modified_time" content="2021-08-01T04:12:03.485Z">
 <meta property="article:author" content="Yuan Gaopeng">
 <meta property="article:tag" content="Git">
 <meta property="article:tag" content="版本控制">
@@ -443,6 +443,10 @@
 <td><code>git commit -m [mess]</code></td>
 </tr>
 <tr>
+<td>修改最近一次提交的日志</td>
+<td><code>git commit --amend</code></td>
+</tr>
+<tr>
 <td>删除文件</td>
 <td><code>git rm [fileName]</code></td>
 </tr>
@@ -480,109 +484,89 @@
 </tr>
 </tbody></table>
 <p><strong>流程如图所示：</strong><br><img src="/img/lifecycle.png" alt="">  </p>
-<p>查看提交历史 | $ <strong>git shortlog</strong></p>
-<h3 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h3><p><strong>对上一次的提交进行修改</strong></p>
-<blockquote>
-<p>git commit –amend -m <message></p>
-</blockquote>
 <h2 id="Git分支和合并"><a href="#Git分支和合并" class="headerlink" title="Git分支和合并"></a>Git分支和合并</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Git处理分支的方式轻量，创建新分支这一操作能在瞬间完成，并且在不同分支之间的切换操作也是一样便捷。 </p>
 <h3 id="git-branch"><a href="#git-branch" class="headerlink" title="git-branch"></a>git-branch</h3><p>列出，创建或删除分支</p>
 <ul>
-<li>git branch：列出所有分支（当前分支前带星号）</li>
-<li>git branch <branch>：创建分支</li>
-<li>git branch -d <branch>：删除分支</li>
-<li>git branch -D <branch>：强制删除分支</li>
-<li>git branch -v：打印各分支最后一次提交信息</li>
-<li>git branch -vv：打印各分支最后一次提交信息和对应远程分支的路径</li>
+<li><code>git branch</code>：列出所有分支（当前分支前带星号）</li>
+<li><code>git branch &lt;branch&gt;</code>：创建分支</li>
+<li><code>git branch -d &lt;branch&gt;</code>：删除分支</li>
+<li><code>git branch -D &lt;branch&gt;</code>：强制删除分支</li>
+<li><code>git branch -v</code>：打印各分支最后一次提交信息</li>
+<li><code>git branch -vv</code>：打印各分支最后一次提交信息和对应远程分支的路径</li>
 </ul>
 <h3 id="git-checkout"><a href="#git-checkout" class="headerlink" title="git-checkout"></a>git-checkout</h3><p>切换分支或还原工作区的文件</p>
 <ul>
-<li>git checkout <branch>：切换到分支branch</li>
-<li>git checkout <fileName>：撤销对文件的修改（未添加到暂存区）</li>
-<li>git checkout -f <branch>：强制切换到分支branch（工作区修改的文件会丢失）</li>
-<li>git checkout -b <branch>：创建并切换到分支branch</li>
-<li>git checkout -b <branch> <remote>/<branch>：把远程分支复制到本地并切换</li>
+<li><code>git checkout &lt;branch&gt;</code>：切换到分支branch</li>
+<li><code>git checkout &lt;fileName&gt;</code>：撤销对文件的修改（未添加到暂存区）</li>
+<li><code>git checkout -f &lt;branch&gt;</code>：强制切换到分支branch（工作区修改的文件会丢失）</li>
+<li><code>git checkout -b &lt;branch&gt;</code>：创建并切换到分支branch</li>
+<li><code>git checkout -b &lt;branch&gt; &lt;remote&gt;/&lt;branch&gt;</code>：把远程分支复制到本地并切换</li>
 </ul>
 <h3 id="git-merge"><a href="#git-merge" class="headerlink" title="git-merge"></a>git-merge</h3><p>把两个或多个开发历史合并，此步骤可能会有冲突。</p>
 <ul>
-<li>git merge <branch>：把branch合并到当前分支</li>
-<li>git merge <branchA> <branchB>：手动合并代码，把branchA合并到branchB</li>
+<li><code>git merge &lt;branch&gt;</code>：把branch合并到当前分支</li>
+<li><code>git merge &lt;branchA&gt; &lt;branchB&gt;</code>：手动合并代码，把branchA合并到branchB</li>
 </ul>
 <h3 id="git-log"><a href="#git-log" class="headerlink" title="git-log"></a>git-log</h3><p>按提交时间列出所有的更新，最近的更新排在最上面。</p>
 <ul>
-<li>git log</li>
+<li><code>git log</code></li>
+</ul>
+<h3 id="git-shortlog"><a href="#git-shortlog" class="headerlink" title="git-shortlog"></a>git-shortlog</h3><p>查看简要的提交日志</p>
+<ul>
+<li><code>git shortlog</code></li>
 </ul>
 <h3 id="git-stash"><a href="#git-stash" class="headerlink" title="git-stash"></a>git-stash</h3><p>将修改的文件隐藏</p>
 <ul>
-<li>git stash：将所有修改的文件隐藏</li>
-<li>git stash push：将所有隐藏的修改文件显示</li>
+<li><code>git stash</code>：将所有修改的文件隐藏</li>
+<li><code>git stash push</code>：将所有隐藏的修改文件显示</li>
 </ul>
 <h3 id="冲突"><a href="#冲突" class="headerlink" title="冲突"></a>冲突</h3><p>当两个分支对同一个文件进行更改的时候，就会产生冲突。或者在同一个分支中，两个开发者都修改了某个文件，也会发生冲突。<br><strong>解决方法</strong>：当发生分支合并冲突的时候，使用<strong>git status</strong>命令，版本库会告诉我们哪个文件产生了冲突，然后手动将两个文件内容修改一样，再添加到暂存区并提交即可解决分支合并冲突。</p>
+<h2 id="分享和更新项目"><a href="#分享和更新项目" class="headerlink" title="分享和更新项目"></a>分享和更新项目</h2><p>与其他开发人员合作开发项目，需要注意的是pull或者merge的时候需要先commit！否则可能会造成代码丢失</p>
+<h3 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git-fetch"></a>git-fetch</h3><p>从另一个仓库，下载对象和引用</p>
+<ul>
+<li>git fetch <repository></li>
+</ul>
+<h3 id="git-pull"><a href="#git-pull" class="headerlink" title="git-pull"></a>git-pull</h3><p>从另一个仓库或者本地分支下载对象和引用并合并，相当于fetch+merge</p>
+<ul>
+<li><code>git pull upstream &lt;branch&gt;</code>：把upstream仓库的特定分支拉取并合并到本地当前分支</li>
+<li><code>git pull upstream &lt;branch&gt;:develop</code>：把upstream仓库的特定分支拉取并合并到本地develop分支</li>
+</ul>
+<h3 id="git-push"><a href="#git-push" class="headerlink" title="git-push"></a>git-push</h3><p>更新远端的引用和相关的对象</p>
+<ul>
+<li><code>git push</code>：推送到当前分支默认远程分支</li>
+<li><code>git push -f</code>：强制推送到远端代码</li>
+<li><code>git push &lt;branch&gt;</code>：推送到远端的某个指定分支</li>
+<li><code>git push origin master</code>：本地的master分支推送到远程origin仓库的master分支</li>
+</ul>
+<h3 id="git-remote"><a href="#git-remote" class="headerlink" title="git-remote"></a>git-remote</h3><p>管理被跟踪的仓库</p>
+<ul>
+<li><code>git remote</code>：显示远程仓库名称</li>
+<li><code>git remote -v</code>：显示远程仓库信息</li>
+<li><code>git remote show &lt;name&gt;</code>：显示特定远程仓库的详细信息</li>
+<li><code>git remote add &lt;name&gt; &lt;url&gt;</code>：添加远程仓库</li>
+<li><code>git remote remove &lt;name&gt;</code>：删除远程仓库</li>
+<li><code>git remote rename &lt;old name&gt; &lt;new name&gt;</code>：远程仓库的重命名</li>
+<li><code>git remote set-url &lt;shortname&gt; &lt;url&gt;</code>：远程仓库地址修改</li>
+</ul>
 <h2 id="Git远程仓库与Git托管平台"><a href="#Git远程仓库与Git托管平台" class="headerlink" title="Git远程仓库与Git托管平台"></a>Git远程仓库与Git托管平台</h2><p>通过 Git 分享你的代码或者与其他开发人员合作，你就需要将数据放到一台其他开发人员能够连接的服务器上。常用的远程仓库主要有两个，<strong>GitHub</strong>和<strong>GitLab</strong>.</p>
-<h3 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h3><p><strong>远程仓库相关命令</strong></p>
-<table>
-<thead>
-<tr>
-<th>操作</th>
-<th>命令</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>查看远程仓库名称<strong>(默认origin)</strong></td>
-<td><strong>git remote</strong></td>
-</tr>
-<tr>
-<td>查看远程仓库地址等详细信息</td>
-<td><strong>git remote -v</strong></td>
-</tr>
-<tr>
-<td>添加远程仓库</td>
-<td><strong>git remote add &lt;shortname&gt; &lt;url&gt;</strong></td>
-</tr>
-<tr>
-<td>从远程仓库中拉取到本地</td>
-<td>*<em>git fetch *</em></td>
-</tr>
-<tr>
-<td>推送到远程仓库</td>
-<td>*<em>git push *</em></td>
-</tr>
-<tr>
-<td>从远程仓库拉取并<strong>merge</strong>到本地</td>
-<td>*<em>git pull *</em></td>
-</tr>
-<tr>
-<td>查看远程仓库</td>
-<td><strong>git remote show &lt;shortname&gt;</strong></td>
-</tr>
-<tr>
-<td>远程仓库的重命名</td>
-<td><strong>git remote rename &lt;old name&gt; &lt;new name&gt;</strong></td>
-</tr>
-<tr>
-<td>远程仓库的移除</td>
-<td><strong>git remote rm &lt;shortname&gt;</strong></td>
-</tr>
-<tr>
-<td>远程仓库的地址修改</td>
-<td><strong>git remote set-url &lt;shortname&gt; &lt;url&gt;</strong></td>
-</tr>
-</tbody></table>
-<p><strong>pull=fetch+merge</strong></p>
 <h2 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>github是一个基于git的代码托管平台，可以实现 Git 托管、问题追踪、代码审查以及其它事情。主要适用于普通的个人开源代码。</p>
-<h3 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h3><p><a target="_blank" rel="noopener" href="https://github.com">GitHub官网链接</a></p>
-<h3 id="用SSH连接到GitHub"><a href="#用SSH连接到GitHub" class="headerlink" title="用SSH连接到GitHub"></a>用SSH连接到GitHub</h3><p><a target="_blank" rel="noopener" href="https://help.github.com/articles/generating-ssh-keys">参阅 GitHub 的 SSH 密钥指南</a>  </p>
+<h3 id="用SSH连接到GitHub"><a href="#用SSH连接到GitHub" class="headerlink" title="用SSH连接到GitHub"></a>用SSH连接到GitHub</h3><p><a target="_blank" rel="noopener" href="https://docs.github.com/cn/github/authenticating-to-github/connecting-to-github-with-ssh/checking-for-existing-ssh-keys">参阅 GitHub 的 SSH 密钥指南</a>  </p>
 <p>连接GitHub需要使用SSH协议作为传输协议，SSH架设相对简单，多数管理员都有使用经验，并且多数操作系统都包含了它及相关的管理工具。 其次，通过 SSH 访问是安全的 —— 所有传输数据都要经过授权和加密。并且SSH协议很高效，在传输前也会尽量压缩数据。  </p>
 <ol>
 <li>关于SSH： 使用SSH协议，可以连接并认证到远程服务器，用SSH keys访问GitHub，不需要提供用户名和密码。  </li>
-<li>检查已存在的SSH keys： 在产生一个SSH key之前，需要查看是否存在SSH keys。  输入<strong>ls -al ~/.ssh</strong>，查看是否有SSH keys存在，不存在要生成一个新的SSH Key。</li>
-<li>创建一个新的SSH key，输入 <strong>ssh-keygen -t rsa -b 4096 -C “<a href="mailto:610951793@qq.com">610951793@qq.com</a>“</strong>，<br>和[密码]。</li>
+<li>检查已存在的SSH keys： 在产生一个SSH key之前，需要查看是否存在SSH keys。  输入<strong>ls -al ~/.ssh</strong>，查看是否有SSH keys存在，不存在要生成一个新的SSH Key。<blockquote>
+<p>一般情况下，私钥名为<code>id_rsa</code>，公钥名为<code>id_rsa.pub</code></p>
+</blockquote>
+</li>
+</ol>
+<ol start="3">
+<li>创建一个新的SSH key，输入 <code>ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;</code>，<br>和[密码]。</li>
 <li>添加到ssh-agent，输入<strong>ssh-add ~/.ssh/id_rsa</strong>。</li>
 <li>添加新SSH key到GitHub账号 ，输入<strong>clip &lt; ~/.ssh/id_rsa.pub</strong>，得到后在GitHub账号下添加。</li>
 <li>测试SSH是否连接成功， 输入<strong>ssh -T <a href="mailto:git@github.com">git@github.com</a></strong>，成功则显示You’ve successfully authenticated，否则重新检查前几步操作。</li>
 <li>使用SSH key开始工作  </li>
 </ol>
-<h2 id="GitLab"><a href="#GitLab" class="headerlink" title="GitLab"></a>GitLab</h2><p>GitLab是用来托管git项目的平台，适合在企业或项目组中使用，可以保证代码的安全性，并提供可视化界面，更方便对项目进行管理和监控。因与GitHub大体功能相同，不再赘述。</p>
+<h2 id="GitLab"><a href="#GitLab" class="headerlink" title="GitLab"></a>GitLab</h2><p>GitLab是用来托管git项目的平台，适合在企业或项目组中使用，可以保证代码的安全性，并提供可视化界面，更方便对项目进行管理和监控。因与GitHub大体功能相同。</p>
 <h2 id="主要参考资料"><a href="#主要参考资料" class="headerlink" title="主要参考资料"></a>主要参考资料</h2><ol>
 <li><a target="_blank" rel="noopener" href="https://git-scm.com/docs">官方文档</a>  ：   <a target="_blank" rel="noopener" href="https://git-scm.com/docs">https://git-scm.com/docs</a></li>
 <li><a target="_blank" rel="noopener" href="https://git-scm.com/book">中文推荐文档</a>  ：  <a target="_blank" rel="noopener" href="https://git-scm.com/book">https://git-scm.com/book</a></li>
@@ -772,7 +756,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.</span> <span class="nav-text">版本控制系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8"><span class="nav-number">1.2.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">1.3.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">1.4.</span> <span class="nav-text">分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.</span> <span class="nav-text">Git介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%98%E7%BD%91%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.1.</span> <span class="nav-text">官网介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%84"><span class="nav-number">2.2.</span> <span class="nav-text">结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">Git安装和配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">3.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">3.2.</span> <span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">Git基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%96%E5%BE%97%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%BB%93%E5%BA%93"><span class="nav-number">4.1.</span> <span class="nav-text">取得项目的仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95%E6%AF%8F%E6%AC%A1%E6%9B%B4%E6%96%B0%E5%88%B0%E4%BB%93%E5%BA%93"><span class="nav-number">4.2.</span> <span class="nav-text">记录每次更新到仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%92%A4%E9%94%80%E6%93%8D%E4%BD%9C"><span class="nav-number">4.3.</span> <span class="nav-text">撤销操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git%E5%88%86%E6%94%AF%E5%92%8C%E5%90%88%E5%B9%B6"><span class="nav-number">5.</span> <span class="nav-text">Git分支和合并</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">5.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-branch"><span class="nav-number">5.2.</span> <span class="nav-text">git-branch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-checkout"><span class="nav-number">5.3.</span> <span class="nav-text">git-checkout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-merge"><span class="nav-number">5.4.</span> <span class="nav-text">git-merge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-log"><span class="nav-number">5.5.</span> <span class="nav-text">git-log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-stash"><span class="nav-number">5.6.</span> <span class="nav-text">git-stash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%B2%E7%AA%81"><span class="nav-number">5.7.</span> <span class="nav-text">冲突</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8EGit%E6%89%98%E7%AE%A1%E5%B9%B3%E5%8F%B0"><span class="nav-number">6.</span> <span class="nav-text">Git远程仓库与Git托管平台</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">6.1.</span> <span class="nav-text">远程仓库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub"><span class="nav-number">7.</span> <span class="nav-text">GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">7.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C"><span class="nav-number">7.2.</span> <span class="nav-text">注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8SSH%E8%BF%9E%E6%8E%A5%E5%88%B0GitHub"><span class="nav-number">7.3.</span> <span class="nav-text">用SSH连接到GitHub</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitLab"><span class="nav-number">8.</span> <span class="nav-text">GitLab</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">9.</span> <span class="nav-text">主要参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.</span> <span class="nav-text">版本控制系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8"><span class="nav-number">1.2.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">1.3.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">1.4.</span> <span class="nav-text">分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.</span> <span class="nav-text">Git介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%98%E7%BD%91%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.1.</span> <span class="nav-text">官网介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%84"><span class="nav-number">2.2.</span> <span class="nav-text">结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">Git安装和配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">3.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">3.2.</span> <span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">Git基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%96%E5%BE%97%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%BB%93%E5%BA%93"><span class="nav-number">4.1.</span> <span class="nav-text">取得项目的仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95%E6%AF%8F%E6%AC%A1%E6%9B%B4%E6%96%B0%E5%88%B0%E4%BB%93%E5%BA%93"><span class="nav-number">4.2.</span> <span class="nav-text">记录每次更新到仓库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git%E5%88%86%E6%94%AF%E5%92%8C%E5%90%88%E5%B9%B6"><span class="nav-number">5.</span> <span class="nav-text">Git分支和合并</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">5.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-branch"><span class="nav-number">5.2.</span> <span class="nav-text">git-branch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-checkout"><span class="nav-number">5.3.</span> <span class="nav-text">git-checkout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-merge"><span class="nav-number">5.4.</span> <span class="nav-text">git-merge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-log"><span class="nav-number">5.5.</span> <span class="nav-text">git-log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-shortlog"><span class="nav-number">5.6.</span> <span class="nav-text">git-shortlog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-stash"><span class="nav-number">5.7.</span> <span class="nav-text">git-stash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%B2%E7%AA%81"><span class="nav-number">5.8.</span> <span class="nav-text">冲突</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E4%BA%AB%E5%92%8C%E6%9B%B4%E6%96%B0%E9%A1%B9%E7%9B%AE"><span class="nav-number">6.</span> <span class="nav-text">分享和更新项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#git-fetch"><span class="nav-number">6.1.</span> <span class="nav-text">git-fetch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-pull"><span class="nav-number">6.2.</span> <span class="nav-text">git-pull</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-push"><span class="nav-number">6.3.</span> <span class="nav-text">git-push</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-remote"><span class="nav-number">6.4.</span> <span class="nav-text">git-remote</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%8EGit%E6%89%98%E7%AE%A1%E5%B9%B3%E5%8F%B0"><span class="nav-number">7.</span> <span class="nav-text">Git远程仓库与Git托管平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub"><span class="nav-number">8.</span> <span class="nav-text">GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">8.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8SSH%E8%BF%9E%E6%8E%A5%E5%88%B0GitHub"><span class="nav-number">8.2.</span> <span class="nav-text">用SSH连接到GitHub</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitLab"><span class="nav-number">9.</span> <span class="nav-text">GitLab</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">10.</span> <span class="nav-text">主要参考资料</span></a></li></ol></div>
             
 
           </div>
